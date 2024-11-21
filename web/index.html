@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Your Flutter PWA">
   <meta name="theme-color" content="#0175C2">
+
+  <!-- Base URL for GitHub Pages -->
+  <base href="/pwa_flutter_project/">
 
   <!-- Icons for different devices -->
   <link rel="apple-touch-icon" sizes="192x192" href="icons/Icon-192.png">
@@ -12,7 +15,8 @@
 
   <title>PWA Flutter Project</title>
 </head>
-<body><script>
+<body>
+<script>
   function removeSplashFromWeb() {
     document.getElementById("loader")?.remove();
     document.body.style.background = "transparent";
@@ -24,7 +28,7 @@
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
       setTimeout(function () {
-        navigator.serviceWorker.register('/flutter_service_worker.js')
+        navigator.serviceWorker.register('./flutter_service_worker.js') // Use relative path
           .then(function (registration) {
             console.log('Service Worker registered with scope:', registration.scope);
           })
@@ -39,3 +43,4 @@
 <script src="main.dart.js" type="application/javascript" onload="removeSplashFromWeb();"></script>
 </body>
 </html>
+
